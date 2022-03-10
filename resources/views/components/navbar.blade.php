@@ -1,5 +1,5 @@
 <nav class="navbar">
-    <img src="" alt="" class="navbar__logo">
+    <img src="/img/logo.svg" alt="" class="navbar__logo">
     <div class="navbar__rest-menu">
         <a href="{{route('about')}}" class="navbar__menu-item  {{$isActive('about')}}">О нас</a>
         <a href="{{route('shop')}}" class="navbar__menu-item {{$isActive('shop')}}">Каталог</a>
