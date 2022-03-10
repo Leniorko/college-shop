@@ -9,9 +9,9 @@
 
         <form action="{{route('login')}}" method="POST" class="login__form">
             @csrf
-        <input type="text" name="login" value="{{old('login')}}" id="login" class="login__login" required>
-        <input type="password" name="password" value="{{old('password')}}" id="password" class="login__password" required>
-        <button type="submit">Войти</button>
+        <input type="text" name="login" value="{{old('login')}}" placeholder="Логин" id="login" class="form__keyboard-input" required>
+        <input type="password" name="password" value="{{old('password')}}" placeholder="Пароль" id="password" class="form__keyboard-input" required>
+        <button type="submit" class="button__primary">Войти</button>
         </form>
     </div>
 </x-layout.master>
