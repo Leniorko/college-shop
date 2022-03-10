@@ -7,10 +7,10 @@
         <div class="navbar__vertical-line"></div>
         @if (Auth::check())
         <a href="{{route('profile')}}" class="navbar__menu-item {{$isActive('profile')}}">Профиль</a>
+        <a href="{{route('logout')}}" class="navbar__menu-item {{$isActive('logout')}}">Выход</a>
         @else
         <a href="{{route('login')}}" class="navbar__menu-item  {{$isActive('login')}}">Вход</a>
         <a href="{{route('register')}}" class="navbar__menu-item  {{$isActive('register')}}">Регистрация</a>
-
         @endif
     </div>
 </nav>

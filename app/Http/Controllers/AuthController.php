@@ -54,4 +54,14 @@ class AuthController extends Controller
 
         return back()->withInput()->with('register_error', true);
     }
+
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }
