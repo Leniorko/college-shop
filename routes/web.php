@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,13 +27,10 @@ Route::get('/find-us', function(){
 })->name('find');
 
 // TODO: hide behind middleware
-Route::get('/login', function(){
-    return view('components.login');
-})->name('login');
-
-Route::get('/register', function(){
-    return 'register placeholder';
-})->name('register');
+Route::get('/login', [AuthController::class, 'loginGetHandler'])->name('login');
+Route::post('/login', [AuthController::class, 'loginPostHandler'])->name('login');
+Route::get('/register', [AuthController::class, 'registerGetHandler'])->name('register');
+Route::post('/register', [AuthController::class, 'registerPostHandler'])->name('register');
 
 Route::get('/admin', function(){
     return 'admin placeholder';
