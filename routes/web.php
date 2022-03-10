@@ -27,11 +27,15 @@ Route::get('/find-us', function(){
 })->name('find');
 
 // TODO: hide behind middleware
-Route::get('/login', [AuthController::class, 'loginGetHandler'])->name('login');
-Route::post('/login', [AuthController::class, 'loginPostHandler'])->name('login');
-Route::get('/register', [AuthController::class, 'registerGetHandler'])->name('register');
-Route::post('/register', [AuthController::class, 'registerPostHandler'])->name('register');
-Route::any('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::middleware('guest')->group(function(){
+    Route::get('/login', [AuthController::class, 'loginGetHandler'])->name('login');
+    Route::post('/login', [AuthController::class, 'loginPostHandler'])->name('login');
+    Route::get('/register', [AuthController::class, 'registerGetHandler'])->name('register');
+    Route::post('/register', [AuthController::class, 'registerPostHandler'])->name('register');
+});
+Route::middleware('auth')->group(function(){
+    Route::any('/logout', [AuthController::class, 'logout'])->name('logout');
+});
 
 Route::get('/admin', function(){
     return 'admin placeholder';
